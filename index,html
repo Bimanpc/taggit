@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirTags Tracking App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f9;
+    }
+    .app-container {
+      width: 90%;
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+      text-align: center;
+    }
+    .airtag {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .airtag:last-child {
+      border-bottom: none;
+    }
+    .airtag-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .airtag-info span {
+      font-size: 16px;
+      color: #333;
+    }
+    .location {
+      font-size: 14px;
+      color: #888;
+    }
+    .refresh-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007aff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .refresh-button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <h1>AirTags Tracker</h1>
+
+  <!-- AirTag item template -->
+  <div id="airtags-list">
+    <!-- Example of an AirTag item (dynamic content goes here) -->
+  </div>
+
+  <button class="refresh-button" onclick="refreshData()">Refresh Location</button>
+</div>
+
+<script>
+  // Sample data for demonstration
+  const airtags = [
+    { name: "Backpack", location: "Near Main St." },
+    { name: "Keys", location: "At Home" },
+    { name: "Wallet", location: "Office, 3rd Floor" }
+  ];
+
+  function displayAirtags() {
+    const list = document.getElementById("airtags-list");
+    list.innerHTML = ''; // Clear existing items
+    airtags.forEach(airtag => {
+      const airtagDiv = document.createElement("div");
+      airtagDiv.className = "airtag";
+      airtagDiv.innerHTML = `
+        <div class="airtag-info">
+          <span>${airtag.name}</span>
+          <span class="location">Location: ${airtag.location}</span>
+        </div>
+      `;
+      list.appendChild(airtagDiv);
+    });
+  }
+
+  function refreshData() {
+    // Placeholder for real data fetching
+    displayAirtags();
+  }
+
+  // Initial display
+  displayAirtags();
+</script>
+
+</body>
+</html>
